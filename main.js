@@ -44,7 +44,7 @@ async function movieview(movieid, img, vnm) {
         const data = await response.json();
         const videoList = data.videos.items;
         videoList.forEach(video => {
-            const gasituerabi = video.height + p;
+            const gasituerabi = video.height + "p";
             const listvideourl = video.url;
             gasitulist.innerHTML += `<option value="${listvideourl}">${gasituerabi}</option>`;
         });
