@@ -1,0 +1,163 @@
+.cyber-bg {
+    background-color: #c1feff6b;
+    background-image: radial-gradient(circle at 0% 0%, rgb(64 197 255) 0%, transparent 100%);
+    min-height: 100vh;
+}
+
+#settings {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    border: none;
+    margin-left: 20px;
+    background-color: #71b8ff8f;
+    border-radius: 100px;
+    transition: transform 0.5s ease-in-out;
+}
+#settings:hover {
+    transform: rotate(360deg);
+}
+#search {
+    border: none;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    width: 60%;
+    height: 50px;
+    font-size: 25px;
+    outline: none;
+    transition: all 0.1s ease-out;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    vertical-align: middle;
+    line-height: 50px;
+    padding: 0 20px;
+    margin: 0;
+}
+.cardcss {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.carddesain {
+    background-color: white;
+    padding: 50px 100px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+#movieimg {
+    width: 500px;
+}
+.active-sink {
+    box-shadow: none !important;
+    transform: translate(2px, 2px) !important;
+}
+.result-card {
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+}
+.result-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.2)
+}
+.login {
+    background-color: #1a8dff8f;
+    padding: 10px 50px;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    transition: all 0.1s ease-out;
+}
+#mypage:has(.searchgo:hover) input {
+    box-shadow: none;
+    transform: translate(2px,2px);
+}
+.searchgo {
+    border: none;
+    position: relative;
+    top: 0px;
+    margin-left: -3.1px;
+    background-color: #1a8dff8f;
+    width: 50px;
+    height: 50px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    vertical-align: middle;
+}
+.searchgo:hover {
+    box-shadow: none;
+    transform: translate(2px, 2px);
+}
+#kekkabox {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+#mypage {
+    padding-top: 20px;
+}
+#api-key-input{
+    border-radius: 8px;
+}
+.login:hover {
+    box-shadow: none;
+    transform: translate(2px, 2px);
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+.rotate-border {
+    position: relative;
+    overflow: hidden;
+}
+.rotate-border::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    aspect-ratio: 1;
+    
+    background: conic-gradient(transparent, transparent, transparent, #00f2fe);
+    animation: rotate 4s linear infinite;
+    animation-play-state: paused;
+    z-index: -2;
+}
+.rotate-border:hover::before {
+    animation-play-state: running;
+}
+.rotate-border::after {
+    content: "";
+    position: absolute;
+    inset: 3px; 
+    background: white; 
+    border-radius: 100px;
+    z-index: -1;
+}
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.rotate-border > * {
+    position: relative;
+    z-index: 1;
+}

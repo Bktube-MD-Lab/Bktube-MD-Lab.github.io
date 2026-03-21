@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja" class="cyber-bg">
+    <head>
+        <meta charset="UTF-8">
+        <title>バカタレtube(Bktube)</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="icon" href="Bktube.ico"/>
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <div id="login_page" style="display: none;">
+            <div class="cardcss">
+                <div class="carddesain">
+                    <h1>APIキーを入力</h1>
+                    <input type="password" id="api-key-input" placeholder="API-KEYをここに入力または貼り付け">
+                    <button id="login" class="rotate-border login">レッツゴー！！</button>
+                </div>
+            </div>
+        </div>
+        <div id="apikey_save" style="display: none;">
+            <div class="cardcss">
+                <div class="carddesain">
+                    <h3 id="api_key_view"></h3>
+                    <h1 id="apikeysaveinfo">上記のAPI_KEYをセーブします。</h1>
+                    <button id="apikeysaveallow" class="rotate-border login">セーブを許可する</button>
+                </div>
+            </div>
+        </div>
+        <div id="tomypageinfo" style="display: none;">
+            <div class="cardcss">
+                <div class="carddesain">
+                    <p>api-keyの保存が完了しているため、mypageに移動します。</p>
+                    <button id="tomypage" class="rotate-border login">マイページへ</button>
+                </div>
+            </div>
+        </div>
+        <div id="mypage" style="display: none;">
+            <img style="vertical-align: middle;" width="50" src="Bktube.jpg" alt="Bktube"><h1 style="display: inline; vertical-align: middle;">bktube</h1>
+            <input type="text" onkeydown="handleEnter(event)" placeholder ="動画を検索またはURLを入力" id="search">
+            <button id="searchgo" class="searchgo rotate-border">🔍️</button>
+            <button id="settings">⚙</button>
+            <div id="kekkabox"></div>
+        </div>
+        <div id="moviepage" style="display: none;">
+            <div class="cardcss">
+                <div class="carddesain">
+                    <h1 id="moviename"></h1>
+                    <img id="movieimg" src="" width="200">
+                    <h5 id="console"> </h5>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
