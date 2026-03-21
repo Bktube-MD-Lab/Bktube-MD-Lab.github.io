@@ -41,7 +41,7 @@ async function movieview(movieid, img, vnm) {
     try {
         const response = await fetch(requesturl, options);
         const data = await response.json();
-        document.querySelector('#console').innerHTML = JSON.stringify(data);
+        document.querySelector('#console').innerHTML = JSON.stringify(data.videos.items);
     } catch (error) {
         alert("通信エラー！なんでだろ〜なんでだろ〜");
         console.error(error)
