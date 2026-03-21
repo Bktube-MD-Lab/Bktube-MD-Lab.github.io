@@ -46,9 +46,9 @@ async function movieview(movieid, img, vnm) {
         videoList.forEach(video => {
             const gasituerabi = video.height + "p";
             const listvideourl = video.url;
-            const hasAudio = video.hasAudio ? "あり" || "なし";
+            const hasAudio = video.hasAudio ? "あり" : "なし";
             const extension = video.extension
-            gasituselect.innerHTML += `<option value="${listvideourl}">${gasituerabi}、音声${hasAudio}(extension)</option>`;
+            gasituselect.innerHTML += `<option value="${listvideourl}">${gasituerabi}、音声${hasAudio}(${extension})</option>`;
         });
     } catch (error) {
         alert("通信エラー！なんでだろ〜なんでだろ〜");
