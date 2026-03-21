@@ -46,7 +46,7 @@ async function movieview(movieid, img, vnm) {
         videoList.forEach(video => {
             const gasituerabi = video.height + "p";
             const listvideourl = video.url;
-            gasitulist.innerHTML += `<option value="${listvideourl}">${gasituerabi}</option>`;
+            gasituselect.innerHTML += `<option value="${listvideourl}">${gasituerabi}</option>`;
         });
     } catch (error) {
         alert("通信エラー！なんでだろ〜なんでだろ〜");
