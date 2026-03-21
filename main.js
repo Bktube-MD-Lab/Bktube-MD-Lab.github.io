@@ -11,6 +11,7 @@ let hash = "nanika"
 const hashget = () => hash = location.hash.replace('#', '');
 const apikeysaveinfo = document.querySelector('#apikeysaveinfo');
 const resultsBox = document.querySelector('#kekkabox');
+const gasituselect = document.querySelector("#gasitu");
 //変数登録ここまで
 function handleEnter(event) {
     if (event.key === 'Enter') {
@@ -42,7 +43,11 @@ async function movieview(movieid, img, vnm) {
         const response = await fetch(requesturl, options);
         const data = await response.json();
         const videoList = data.videos.items;
-        
+        videoList.forEath(video => {
+            const gasitu-p = video.height + p;
+            const list-video-url = video.url;
+            gasitulist.innerHTML += `<option value="${list-video-url}">${gasitu-p}</option>`;
+        });
     } catch (error) {
         alert("通信エラー！なんでだろ〜なんでだろ〜");
         console.error(error)
