@@ -44,9 +44,9 @@ async function movieview(movieid, img, vnm) {
         const data = await response.json();
         const videoList = data.videos.items;
         videoList.forEath(video => {
-            const gasitu-p = video.height + p;
-            const list-video-url = video.url;
-            gasitulist.innerHTML += `<option value="${list-video-url}">${gasitu-p}</option>`;
+            const gasituerabi = video.height + p;
+            const listvideourl = video.url;
+            gasitulist.innerHTML += `<option value="${list-video-url}">${gasituerabi}</option>`;
         });
     } catch (error) {
         alert("通信エラー！なんでだろ〜なんでだろ〜");
