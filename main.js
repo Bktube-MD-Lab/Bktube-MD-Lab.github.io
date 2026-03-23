@@ -12,7 +12,12 @@ const hashget = () => hash = location.hash.replace('#', '');
 const apikeysaveinfo = document.querySelector('#apikeysaveinfo');
 const resultsBox = document.querySelector('#kekkabox');
 const gasituselect = document.querySelector("#gasitu");
+import { FFmpeg } from 'https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/+esm';
+import { fetchFile } from 'https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/+esm';
+console.log("FFmpegの部品が揃いました！", FFmpeg, fetchFile);
+const ffmpeg = new FFmpeg();
 //変数登録ここまで
+ffmpeg.load();
 function handleEnter(event) {
     if (event.key === 'Enter') {
         search.classList.add('active-sink');
@@ -43,13 +48,20 @@ async function movieview(movieid, img, vnm) {
         const response = await fetch(requesturl, options);
         const data = await response.json();
         const videoList = data.videos.items;
+        let videodata = {gasitu:0,url:"",};
+        let audiovideourl = "";
         videoList.forEach(video => {
-            const gasituerabi = video.height + "p";
-            const listvideourl = video.url;
-            const hasAudio = video.hasAudio ? "あり" : "なし";
-            const extension = video.extension
-            gasituselect.innerHTML += `<option value="${listvideourl}">${gasituerabi}、音声${hasAudio}(${extension})</option>`;
+            if (videodata.gasitu < video.height) {
+                videodata.gasitu = video.height;
+                videodata.url = video.url
+            };
+            if (video.hasaudio) audiovideourl = video.url
         });
+        ffmpeg.load();
+        await ffmpeg.writeFile('video.mp4', videodata.url);
+        await ffmpeg.writeFile('audio.mp4', audiovideourl);
+        await ffmpeg.exec(['-i', 'video.mp4', '-i', 'audio.mp4', '-c', 'copy', 'output.mp4']);
+        console.log(ffmpeg.readFile('output.mp4'))
     } catch (error) {
         alert("通信エラー！なんでだろ〜なんでだろ〜");
         console.error(error)
