@@ -55,13 +55,20 @@ async function movieview(movieid, img, vnm) {
                 videodata.gasitu = video.height;
                 videodata.url = video.url
             };
-            if (video.hasaudio) audiovideourl = video.url
+            if (video.hasAudio) audiovideourl = video.url
         });
         ffmpeg.load();
-        await ffmpeg.writeFile('video.mp4', videodata.url);
-        await ffmpeg.writeFile('audio.mp4', audiovideourl);
+        if (!ffmpeg.loaded) {
+            console.log("FFmpegを起動中...");
+            await ffmpeg.load();
+        }
+        const proxy = "https://corsproxy.io/?";
+        await ffmpeg.writeFile('video.mp4', await fetchFile(proxy + encodeURIComponent(videodata.url)));
+        await ffmpeg.writeFile('audio.mp4', await fetchFile(proxy + encodeURIComponent(audiovideourl)));
         await ffmpeg.exec(['-i', 'video.mp4', '-i', 'audio.mp4', '-c', 'copy', 'output.mp4']);
-        console.log(ffmpeg.readFile('output.mp4'))
+        const kekkadata = await ffmpeg.readFile('output.mp4');
+        const kekkaVideoUrl = URL.createObjectURL(new Blob([finalData.buffer], { type: 'video/mp4' }));
+        console.log(kekkaVideoUrl)
     } catch (error) {
         alert("通信エラー！なんでだろ〜なんでだろ〜");
         console.error(error)
